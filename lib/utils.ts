@@ -1,38 +1,42 @@
-
 import mammoth from 'mammoth';
+
 
 let extractTextFromPDF: (file: File) => Promise<string>;
 
 if (typeof window !== 'undefined') {
-  import('pdfjs-dist').then(({ getDocument, GlobalWorkerOptions }) => {
-    GlobalWorkerOptions.workerSrc = '/pdf.worker.min.js'; 
-
+    const { getDocument , GlobalWorkerOptions } = require('pdfjs-dist');
+  
+    GlobalWorkerOptions.workerSrc = '/pdf.worker.mjs'; 
+  
     extractTextFromPDF = async (file: File) => {
-      const arrayBuffer = await file.arrayBuffer();
-      const pdf = await getDocument(new Uint8Array(arrayBuffer)).promise;
-      let text = '';
+        const reader = new FileReader();
 
-      // Iterate over all pages of the PDF
-      for (let i = 1; i <= pdf.numPages; i++) {
-        const page = await pdf.getPage(i);
-        const content = await page.getTextContent();
-        text += content.items
-          .map((item: any) => ('str' in item ? item.str : ''))
-          .join(' ') + '\n';
-      }
+        return new Promise<string>((resolve, reject) => {
+            reader.onload = async function () {
+                const typedArray = new Uint8Array(reader.result as ArrayBuffer);
+                const pdf = await getDocument(typedArray).promise;
+                let text = "";
 
-      return text;
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const content = await page.getTextContent();
+                    text += content.items.map((item: any) => item.str).join(" ") + "\n";
+                }
+
+                resolve(text);
+            };
+
+            reader.onerror = reject;
+            reader.readAsArrayBuffer(file);
+        });
     };
-  }).catch(err => {
-    console.error('Error loading pdfjs-dist:', err);
-  });
-}
-
-// Function to extract text from DOCX
-export async function extractTextFromDocx(file: File) {
-  const arrayBuffer = await file.arrayBuffer();
-  const result = await mammoth.extractRawText({ arrayBuffer });
-  return result.value; // Return plain text extracted from DOCX
 }
 
 export { extractTextFromPDF };
+
+
+export async function extractTextFromDocx(file: File) {
+  const arrayBuffer = await file.arrayBuffer();
+  const result = await mammoth.extractRawText({ arrayBuffer });
+  return result.value; // Here you get the plain text
+}
