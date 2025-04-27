@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className='flex gap-2 justify-center items-center'>
-          <span className="text-blue-800 text-lg font-bold mr-4">SkillSync</span>
+          <span className="text-blue-800 text-lg font-bold mr-4">Jobscribe-AI</span>
           <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-blue-500">
           </div>
         </div>

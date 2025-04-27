@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-500">
         <div className="flex justify-between items-center">
           <div className="text-left">
-            &copy; {new Date().getFullYear()} SkillSync. All rights reserved.
+            &copy; {new Date().getFullYear()} Jobscribe-AI. All rights reserved.
           </div>
           <div className="text-center">
             <Link href="#" className="hover:text-gray-700 mr-4">

@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SkillSync",
+  title: "Jobscribe-AI",
   description:
-    "SkillSync - AI-Powered Cover Letter Generator. Instantly generate personalized cover letters based on a job description and your resume using AI (Gemini or GPT).",
+    "Jobscribe-AI - AI-Powered Cover Letter Generator. Instantly generate personalized cover letters based on a job description and your resume using AI (Gemini or GPT).",
 };
 
 export default function RootLayout({

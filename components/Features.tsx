@@ -9,10 +9,10 @@ const Features = () => {
             Key Features
           </h2>
           <p className="mt-2 text-4xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            Why Choose SkillSync?
+            Why Choose Jobscribe-AI?
           </p>
           <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-            Here are some of the key features that make SkillSync the best
+            Here are some of the key features that make Jobscribe-AI the best
             choice for generating cover letters.
           </p>
         </div>
