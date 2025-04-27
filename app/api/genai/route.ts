@@ -8,7 +8,7 @@ if(!process.env.GEMINI_API_KEY){
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
 
-export async function POST(req:NextRequest ,res:NextResponse) {
+export async function POST(req:NextRequest  ) {
     const { resume , jopdisc } = await req.json();
 
     const prompt = `

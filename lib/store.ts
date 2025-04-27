@@ -10,7 +10,7 @@ interface StoreState {
 export const useLetterstore = create<StoreState>((set)=>({
     letter: "",
     txtLetter: "",
-    setLetter: (letter: string) => set((state) => ({ letter: letter })),
-    setTxtLetter: (txtLetter: string) => set((state) => ({ txtLetter: txtLetter }))
+    setLetter: (letter: string) => set(() => ({ letter: letter })),
+    setTxtLetter: (txtLetter: string) => set(() => ({ txtLetter: txtLetter }))
 })) 
 

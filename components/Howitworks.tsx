@@ -72,7 +72,7 @@ const Howitworks = () => {
                 </p>
               </dt>
               <dd className="mt-2 ml-16 text-base text-gray-500">
-                Paste the job description for the position you're applying for.
+                Paste the job description for the position you&apos;re applying for.
               </dd>
             </div>
 
